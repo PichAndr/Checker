@@ -70,24 +70,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Interface\ITextChecker.cs" />
-    <Compile Include="Models\TextCheckerModel.cs" />
+    <Compile Include="ViewModels\ITextCheckerViewModel.cs" />
     <Compile Include="ViewModels\EvenOrOddViewModel.cs" />
-    <Compile Include="ViewModels\FirstChildViewModel.cs" />
     <Compile Include="ViewModels\PalindromeViewModel.cs" />
-    <Compile Include="ViewModels\SecondChildViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\EvenOrOddView.xaml.cs">
       <DependentUpon>EvenOrOddView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FirstChildView.xaml.cs">
-      <DependentUpon>FirstChildView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\PalindromeView.xaml.cs">
       <DependentUpon>PalindromeView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SecondChildView.xaml.cs">
-      <DependentUpon>SecondChildView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
@@ -121,21 +112,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Interface\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Views\EvenOrOddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FirstChildView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\PalindromeView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SecondChildView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

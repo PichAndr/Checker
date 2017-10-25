@@ -1,31 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using Caliburn.Micro;
-using TextChecker.Models;
-
-namespace TextChecker.ViewModels
+﻿namespace TextChecker.ViewModels
 {
-    public class ShellViewModel : PropertyChangedBase, 
+    using System.Collections.Generic;
+    using Caliburn.Micro;
+    using TextChecker.Models;
+    public class ShellViewModel : ITextChecker
     {
-        public void LoadPalindrome()
+       
+        public ITextChecker SelectedTextChecker { get; set; }
+
+        public List<ITextChecker> CheckerAuswahl
         {
-            ActivateItem( new PalindromeViewModel() );
+            get;
+            private set;
         }
-        public void LoadEvenOrOdd()
+
+        public ShellViewModel()
         {
-            ActivateItem( new EvenOrOddViewModel() );
+            this.textChecker = new List<ITextChecker>()
+            {
+                new PalindromeViewModel(), new EvenOrOddViewModel()
+            };
+            CheckerAuswahl = textChecker;
         }
-        public void LoadPageOne()
+
+        public bool Validate( string value )
         {
-            ActivateItem( new FirstChildViewModel() );
+            return false;
         }
-        public void LoadPageTwo()
-        {
-            ActivateItem( new SecondChildViewModel() );
-        }
+
+        private List<ITextChecker> textChecker;
     }
 }

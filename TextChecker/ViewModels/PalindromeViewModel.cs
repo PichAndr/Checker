@@ -1,11 +1,30 @@
-﻿using System.Windows;
-using Caliburn.Micro;
-
-namespace TextChecker.ViewModels
+﻿namespace TextChecker.ViewModels
 {
-    public class PalindromeViewModel : Screen
+    using System.Windows;
+    using Caliburn.Micro;
+    using TextChecker.Models;
+    public class PalindromeViewModel : PropertyChangedBase, ITextChecker
     {
+        public bool Validate( string value ) => false;
+
         private string _text;
+
+        public string text
+        {
+            get { return _text; }
+            set
+            {
+                _text = value;
+                NotifyOfPropertyChange( () => text );
+                NotifyOfPropertyChange( () => CanHaveResult );
+            }
+        }
+
+        public bool CanHaveResult
+        {
+            get { return !string.IsNullOrWhiteSpace( text ); }
+        }
+
         public void HaveResult()
         {
             string reversedText = "";
@@ -24,19 +43,7 @@ namespace TextChecker.ViewModels
                 MessageBox.Show( "Ihre Eingabe ist kein Palindrom" + "\n\nROT" );
             }
         }
-        public string text
-        {
-            get { return _text; }
-            set
-            {
-                _text = value;
-                NotifyOfPropertyChange( () => text );
-                NotifyOfPropertyChange( () => CanHaveResult );
-            }
-        }
-        public bool CanHaveResult
-        {
-            get { return !string.IsNullOrWhiteSpace( text ); }
-        }
+        
+
     }
 }

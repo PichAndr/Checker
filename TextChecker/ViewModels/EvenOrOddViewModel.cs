@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Caliburn.Micro;
-
-namespace TextChecker.ViewModels
+﻿namespace TextChecker.ViewModels
 {
-    public class EvenOrOddViewModel : Screen
+    using TextChecker.Models;
+
+    public class EvenOrOddViewModel : ITextChecker
     {
+        public bool Validate( string value )
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
